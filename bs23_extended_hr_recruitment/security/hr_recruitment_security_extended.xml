@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="hr_applicant_comp_rule_extended" model="ir.rule">
+        <field name="name">Departments Managers Access Rules</field>
+        <field name="model_id" ref="model_hr_applicant"/>
+        <field eval="True" name="global"/>
+        <field name="domain_force">[('department_id.member_ids.user_id', '=', user.id)]</field>
+    </record>
+
+</odoo>

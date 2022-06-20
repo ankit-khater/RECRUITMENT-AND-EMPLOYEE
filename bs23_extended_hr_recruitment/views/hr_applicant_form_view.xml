@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_extended_hr_applicant" model="ir.ui.view">
+            <field name="name">view.extended.hr.applicant</field>
+            <field name="model">hr.applicant</field>
+            <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='create_employee_from_applicant']" position="attributes">
+                    <attribute name="groups">hr_recruitment.group_hr_recruitment_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='partner_mobile']" position="after">
+                    <field name="emergency_contact_ids">
+                        <tree editable="bottom" create="1">
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="phone"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='type_id']" position="replace">
+                    <field name="educations_line_ids">
+                        <tree editable="bottom" create="1">
+                            <field name="institute"/>
+                            <field name="degree_type_id"/>
+                            <field name="passing_year"/>
+                        </tree>
+                    </field>
+                </xpath>
+            </field>
+        </record>    
+    </data>
+</odoo>    
